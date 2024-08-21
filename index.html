@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <html data-wf-domain="nancy-template.webflow.io" data-wf-page="6369473e4802a7a575c95745"
     data-wf-site="6369473e4802a71c2ac95742">
 
@@ -34,48 +35,160 @@
             "hideDecimalForWholeNumbers": false
         };
     </script>
+    <style>
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            /* background-color: #333; */
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar li {
+            margin: 10px 15px;
+        }
+
+        .navbar a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .navbar a {
+                font-size: 14px;
+            }
+        }
+    </style>
+
+    <style>
+        #scrollToTopBtn {
+            position: fixed;
+            bottom: 10px;
+            right: 20px;
+            z-index: 99;
+            font-size: 20px;
+            border: none;
+            outline: none;
+            background-color: #616060;
+            color: rgb(250, 249, 249);
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: #333;
+        }
+    </style>
+
+    <script>
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("scrollToTopBtn").style.display = "block";
+            } else {
+                document.getElementById("scrollToTopBtn").style.display = "none";
+            }
+        }
+
+        function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
 </head>
 
 <body>
-    <div style="opacity:0" class="page-wrapper">
-        <div data-w-id="b23a6e7b-69b3-c6d6-2023-123f24e313a3" data-animation="default" data-collapse="all"
-            data-duration="0" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
-            <div class="page-padding">
-                <div class="container-large">
-                    <div class="header-content-wrapper">
-                        <p class="logo-link w-nav-brand w--current">hritik_dethaliya</p>
-
-                        <div class="header-right-side">
-                            <div class="header-nav-content">
-                                <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
-                                    <ul role="list" class="nav-menu-list">
-                                        <li class="nav-list-item"><a href="#home" aria-current="page"
-                                                class="nav-link w-nav-link w--current">Home</a></li>
-                                        <li class="nav-list-item"><a href="#about" class="nav-link w-nav-link">About</a>
-                                        </li>
-                                        <!-- <li class="nav-list-item"><a href="#skills" class="nav-link w-nav-link">Skills</a></li> -->
-                                        <li class="nav-list-item"><a href="#experience"
-                                                class="nav-link w-nav-link">Experience</a></li>
-                                        <li class="nav-list-item"><a href="#projects"
-                                                class="nav-link w-nav-link">Projects</a></li>
-                                        <!-- <li class="nav-list-item"><a href="#education" class="nav-link w-nav-link">Education</a></li>
-                                        <li class="nav-list-item"><a href="#extraCurricular" class="nav-link w-nav-link">Extra-curricular</a></li>
-                                        <li class="nav-list-item"><a href="#services" class="nav-link w-nav-link">Services</a></li> -->
-                                        <li class="nav-list-item"><a href="#contact"
-                                                class="nav-link w-nav-link">Contact</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                            <div class="hamburger-menu w-nav-button">
-                                <div class="line-menu top"></div>
-                                <div class="line-menu bottom"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home" onclick="scrollToSection('home'); return false;">Home</a></li>
+            <li><a href="#about" onclick="scrollToSection('about'); return false;">About</a></li>
+            <li><a href="#skills" onclick="scrollToSection('skills'); return false;">Skills</a></li>
+            <li><a href="#experience" onclick="scrollToSection('experience'); return false;">Experience</a></li>
+            <li><a href="#projects" onclick="scrollToSection('projects'); return false;">Projects</a></li>
+            <li><a href="#contact" onclick="scrollToSection('contact'); return false;">Contact</a></li>
+        </ul>
+        <button id="scrollToTopBtn" onclick="scrollToTop()">↑</button>
+    </nav>
+    <div class="mode-toggle">
+        <button id="modeToggleBtn" onclick="toggleMode()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="mode-icon">
+                <path
+                    d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />
+            </svg>
+        </button>
     </div>
+    <style>
+        .mode-toggle {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        #modeToggleBtn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            /* box-shadow: -4px -4px 10px #ffffff, 4px 4px 10px rgba(0, 0, 0, 0.1); */
+            color: #555;
+            /* Default color for light mode */
+            transition: color 0.3s ease;
+            /* Smooth transition for color change */
+        }
+
+        .mode-icon {
+            width: 30px;
+            height: 30px;
+            color: #555;
+        }
+
+        body.dark-mode {
+            background-color: #333;
+            color: #f4f4f4;
+        }
+
+        body.dark-mode .navbar {
+            background-color: #222;
+        }
+
+        body.dark-mode .navbar a {
+            color: #f4f4f4;
+        }
+
+        /* body.dark-mode #modeToggleBtn {
+            box-shadow: -4px -4px 10px #444, 4px 4px 10px rgba(0, 0, 0, 0.3);
+        } */
+        body.dark-mode .mode-icon {
+            color: #f4f4f4;
+        }
+    </style>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+        // Check for saved user preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
 
     <main class="main-wrapper">
         <header class="section-home-header" id="home">
@@ -188,10 +301,10 @@
                                 <img src="./assets/images/skills/sass.png" alt="SASS icon">
                                 <h4>SASS</h4>
                             </div> -->
-                            <div>
+                            <!-- <div>
                                 <img src="./assets/images/skills/bootstrap.png" alt="Bootstrap icon">
                                 <h4>Bootstrap</h4>
-                            </div>
+                            </div> -->
                             <div>
                                 <img src="./assets/images/skills/javaScript.png" alt="JavaScript icon">
                                 <h4>JavaScript</h4>
@@ -259,11 +372,14 @@
                         </div>
                         <div class="w-layout-grid experience-component">
                             <div class="tab">
-                                <button class="tablinks" onclick="openCity(event, 'google')" id="defaultOpen">Google</button>
-                                <button class="tablinks" onclick="openCity(event, 'brainInventory')">Brain Inventory</button>
+                                <button class="tablinks" onclick="openCity(event, 'google')"
+                                    id="defaultOpen">Google</button>
+                                <button class="tablinks" onclick="openCity(event, 'brainInventory')">Brain
+                                    Inventory</button>
                                 <button class="tablinks" onclick="openCity(event, 'microsoft')">Microsoft</button>
                                 <button class="tablinks" onclick="openCity(event, 'walkover')">Walkover</button>
-                                <button class="tablinks" onclick="openCity(event, 'freelancerItServices')">Freelancer</button>
+                                <button class="tablinks"
+                                    onclick="openCity(event, 'freelancerItServices')">Freelancer</button>
                             </div>
 
                             <div class="content-block">
@@ -281,10 +397,15 @@
 
                                     <div class="exp-description">
                                         <ul>
-                                            <li>Worked with the CloudSQL Terraform team to develop a low-code platform that offers visualization of Terraform infrastructure on a 2D canvas using Angular and TypeScript.</li>
-                                            <li>Implemented logic for auto-generation of Terraform code, minimizing the need for manual coding.</li>
-                                            <li>Authored 45+ CLs with deltas of 27,315 added lines of code, 228 changed, and 223 deleted lines of code.</li>
-                                            <li> Coded 20+ unit tests covering various scenarios using Jasmine and Karma.</li>
+                                            <li>Worked with the CloudSQL Terraform team to develop a low-code platform
+                                                that offers visualization of Terraform infrastructure on a 2D canvas
+                                                using Angular and TypeScript.</li>
+                                            <li>Implemented logic for auto-generation of Terraform code, minimizing the
+                                                need for manual coding.</li>
+                                            <li>Authored 45+ CLs with deltas of 27,315 added lines of code, 228 changed,
+                                                and 223 deleted lines of code.</li>
+                                            <li> Coded 20+ unit tests covering various scenarios using Jasmine and
+                                                Karma.</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -303,8 +424,10 @@
 
                                     <div class="exp-description">
                                         <ul>
-                                            <li>Developed and revamped multiple products with dynamic and reusable UI components using React.js, Redux, JavaScript, and Rest APIs.</li>
-                                            <li>Integrated over 50+ APIs with the front-end ensuring seamless data flow and optimal application performance.</li>
+                                            <li>Developed and revamped multiple products with dynamic and reusable UI
+                                                components using React.js, Redux, JavaScript, and Rest APIs.</li>
+                                            <li>Integrated over 50+ APIs with the front-end ensuring seamless data flow
+                                                and optimal application performance.</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -323,9 +446,13 @@
 
                                     <div class="exp-description">
                                         <ul>
-                                            <li>Developed an application from scratch using under the guidance of Microsoft mentors.</li>
-                                            <li>Integrated the Spotify Annoy library to significantly elevate database search speed; reduced search time by 2X, thus increasing the response rate by 1.5X.</li>
-                                            <li>Selected for Software Engineering Internship (2023) at Microsoft via this program.</li>
+                                            <li>Developed an application from scratch using under the guidance of
+                                                Microsoft mentors.</li>
+                                            <li>Integrated the Spotify Annoy library to significantly elevate database
+                                                search speed; reduced search time by 2X, thus increasing the response
+                                                rate by 1.5X.</li>
+                                            <li>Selected for Software Engineering Internship (2023) at Microsoft via
+                                                this program.</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -344,8 +471,10 @@
 
                                     <div class="exp-description">
                                         <ul>
-                                            <li>Developed stateful dynamic UI components using React.js and JavaScript.</li>
-                                            <li>Created automation scripts and workflows for integration of 3rd party applications, like Slack and Gmail reducing manual work by 40%.</li>
+                                            <li>Developed stateful dynamic UI components using React.js and JavaScript.
+                                            </li>
+                                            <li>Created automation scripts and workflows for integration of 3rd party
+                                                applications, like Slack and Gmail reducing manual work by 40%.</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -364,8 +493,10 @@
 
                                     <div class="exp-description">
                                         <ul>
-                                            <li>Developed the front-end of various websites from scratch across diverse domains; food, education, jewelry.</li>
-                                            <li>Implemented modules and worked on customization and responsiveness to enhance websites’ aesthetics.</li>
+                                            <li>Developed the front-end of various websites from scratch across diverse
+                                                domains; food, education, jewelry.</li>
+                                            <li>Implemented modules and worked on customization and responsiveness to
+                                                enhance websites’ aesthetics.</li>
                                         </ul>
                                     </div>
                                 </div>
