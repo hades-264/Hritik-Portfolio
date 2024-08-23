@@ -174,10 +174,13 @@
         /* body.dark-mode #modeToggleBtn {
             box-shadow: -4px -4px 10px #444, 4px 4px 10px rgba(0, 0, 0, 0.3);
         } */
+
         body.dark-mode .mode-icon {
             color: #f4f4f4;
         }
+
     </style>
+    
     <script>
         function toggleMode() {
             document.body.classList.toggle('dark-mode');
@@ -377,7 +380,7 @@
                             <h2 class="heading-medium">Experience</h2>
                         </div>
                         <div class="w-layout-grid experience-component">
-                            <div class="tab" id="tablet">
+                            <div class="tab">
                                 <button class="tablinks" onclick="openCity(event, 'google')" id="defaultOpen">Google</button>
                                 <button class="tablinks" onclick="openCity(event, 'brainInventory')">Brain Inventory</button>
                                 <button class="tablinks" onclick="openCity(event, 'microsoft')">Microsoft</button>
@@ -385,7 +388,7 @@
                                 <button class="tablinks" onclick="openCity(event, 'freelancerItServices')">Freelancer</button>
                             </div>
         
-                            <div class="content-block">
+                            <!-- <div class="content-block"> -->
                                 <div id="google" class="tabcontent">
                                     <div class="exp-heading">
                                         <div>
@@ -502,7 +505,7 @@
                                     </div>
                                 </div>
         
-                            </div>
+                            <!-- </div> -->
                         </div>
                     </div>
                 </div>
@@ -601,7 +604,8 @@
 
             /* Dark mode styles for experience section */
             body.dark-mode .tabcontent {
-                background-color: #070707;
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+                background-color: #3431310a;
                 color: #e0e0e0;
                 border-radius: 30px; /* Add border radius */
                 padding: 20px; /* Add padding for better spacing */
