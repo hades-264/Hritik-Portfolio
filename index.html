@@ -61,40 +61,49 @@
                 align-items: center;
                 z-index: 1000;
             }
+
             .navbar ul.show {
                 display: flex;
             }
+
             .navbar li {
                 width: 100%;
                 text-align: left;
             }
+
             .navbar li a {
                 padding: 15px;
                 width: 100%;
                 display: block;
             }
+
             .hamburger {
                 display: block;
                 cursor: pointer;
                 padding: 10px;
             }
+
             .hamburger div {
                 width: 25px;
                 height: 3px;
-                background-color: currentColor;
+                background-color: rgba(58, 57, 57, 0.689);
                 margin: 5px 0;
                 transition: 0.4s;
             }
+
             .hamburger.active div:nth-child(1) {
                 transform: rotate(-45deg) translate(-5px, 6px);
             }
+
             .hamburger.active div:nth-child(2) {
                 opacity: 0;
             }
+
             .hamburger.active div:nth-child(3) {
                 transform: rotate(45deg) translate(-5px, -6px);
             }
         }
+
         @media screen and (min-width: 1000px) {
             .hamburger {
                 display: none;
@@ -120,31 +129,61 @@
             });
         });
     </script>
-    <div class="hamburger" style="padding: 20px; margin-left: 10px; margin-top: 10px;">
+    <div class="hamburger" style="padding: 20px;">
         <div></div>
         <div></div>
         <div></div>
     </div>
-    
-    <nav class="navbar">
-        <ul>
-            <li><a href="#home" onclick="scrollToSection('home'); return false;">Home</a></li>
-            <li><a href="#about" onclick="scrollToSection('about'); return false;">About</a></li>
-            <li><a href="#skills" onclick="scrollToSection('skills'); return false;">Skills</a></li>
-            <li><a href="#experience" onclick="scrollToSection('experience'); return false;">Experience</a></li>
-            <li><a href="#projects" onclick="scrollToSection('projects'); return false;">Projects</a></li>
-            <li><a href="#contact" onclick="scrollToSection('contact'); return false;">Contact</a></li>
-        </ul>
-        <button id="scrollToTopBtn" onclick="scrollToTop()">↑</button>
-    </nav>
-    <div class="mode-toggle">
+    <style>
+        body.dark-mode .hamburger div {
+            background-color: #f4f4f4ee;
+        }
+    </style>
+
+    <style>
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .mode-toggle {
+            cursor: pointer;
+            font-size: 1.5rem;
+            margin-left: 1rem;
+        }
+    </style>
+    <div class="header-container">
+        <nav class="navbar block-to-inline">
+            <ul>
+                <li><a href="#home" onclick="scrollToSection('home'); return false;">Home</a></li>
+                <li><a href="#about" onclick="scrollToSection('about'); return false;">About</a></li>
+                <li><a href="#skills" onclick="scrollToSection('skills'); return false;">Skills</a></li>
+                <li><a href="#experience" onclick="scrollToSection('experience'); return false;">Experience</a></li>
+                <li><a href="#projects" onclick="scrollToSection('projects'); return false;">Projects</a></li>
+                <li><a href="#contact" onclick="scrollToSection('contact'); return false;">Contact</a></li>
+            </ul>
+            <button id="scrollToTopBtn" onclick="scrollToTop()">↑</button>
+        </nav>
+        <div class="mode-toggle" onclick="toggleDarkMode()" style="margin-top: 5px;">🌓</div>
+    </div>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+    </script>
+
+
+    <!-- <div class="mode-toggle">
         <button id="modeToggleBtn" onclick="toggleMode()">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="mode-icon">
                 <path
                     d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />
             </svg>
         </button>
-    </div>
+    </div> -->
 
     <script>
         function toggleMode() {
@@ -157,6 +196,54 @@
             document.body.classList.add('dark-mode');
         }
     </script>
+    <style>
+        .navbar ul li a {
+            transition: color 0.3s ease;
+        }
+
+        /* Light mode hover effect */
+        body:not(.dark-mode) .navbar ul li a:hover {
+            color: #2287f4;
+            /* Bright blue for light mode */
+        }
+
+        /* Dark mode hover effect */
+        body.dark-mode .navbar ul li a:hover {
+            color: #ff1100;
+            /* Cyan for dark mode */
+        }
+    </style>
+    <style>
+        .navbar ul li a {
+            position: relative;
+        }
+
+        .navbar ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: currentColor;
+            transition: width 0.3s ease;
+        }
+
+        .navbar ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Adjust color for light and dark modes */
+        body:not(.dark-mode) .navbar ul li a::after {
+            background-color: #2287f4;
+            /* Bright blue for light mode */
+        }
+
+        body.dark-mode .navbar ul li a::after {
+            background-color: #ff1100;
+            /* Cyan for dark mode */
+        }
+    </style>
 
     <main class="main-wrapper">
         <header class="section-home-header" id="home">
@@ -171,7 +258,7 @@
                                 </div>
                                 <div class="margin-top margin-small">
                                     <div class="max-width-small summary">
-                                        <p class="text-size-regular">Resolving design problems, building smart user
+                                        <p class="text-size-regular" style="text-align: center;">Resolving design problems, building smart user
                                             interfaces and useful interactions, developing rich web applications and
                                             seamless web experiences.</p>
                                     </div>
@@ -213,20 +300,19 @@
                                 <div class="margin-top margin-small">
                                     <p class="text-size-medium">
                                     <ul>
-                                        <li>I am a back-end developer based in Ujjain, India. Recently graduated and
-                                            currently working at TCS as a System Engineer.</li>
+                                        <li>I am a developer based in Ujjain, India. Recently graduated and
+                                            currently working at TCS as a System Engineer</li>
                                         <li>I graduated with B.Tech in Information Technology from Jabalpur Engineering
-                                            College, Jabalpur (2024 batch); achieving a 7.12 CGPA and establishing a
-                                            robust grounding in Software Engineering. </li>
+                                            College, Jabalpur (2024 batch); achieving a 7.12 CGPA</li>
                                         <li>I am highly skilled in technologies like React.js, JavaScript, Rest APIs,
-                                            Redux, TypeScript, HTML, and CSS and Next.js. </li>
-                                        <li>I'm passionate about building unique projects that solve real-world problems
-                                            and learning new technologies. </li>
+                                            Redux, TypeScript, HTML, and CSS and Next.js</li>
+                                        <!-- <li>I'm passionate about building unique projects that solve real-world problems
+                                            and learning new technologies. </li> -->
                                         <li>I have also qualified GATE CSE 2024. I achieved the top 4% in Google
-                                            Kickstart 2022 among 10,000+ participants and ranked in the top 10% in the
-                                            qualifying round of Meta Hackercup 2022. </li>
-                                        <li>Some of my co-curricular hobbies includes competitive programming and
-                                            watching technical vidoes and reading blogs. </li>
+                                            Kickstart 2022 and ranked in the top 10% in the
+                                            qualifying round of Meta Hackercup 2022</li>
+                                        <li>My co-curricular hobbies includes competitive programming and
+                                            watching technical vidoes and reading blogs</li>
                                     </ul>
                                     </p>
                                 </div>
@@ -243,70 +329,69 @@
                     <div class="padding-vertical padding-xhuge">
                         <h2 class="heading-medium">Skills</h2>
 
-                        <div class="skills">
-                            <div>
+                        <div class="skills" style="display: flex; flex-wrap: wrap; gap: 20px;">
+                            <div style="display: flex; flex-direction: column; align-items: center;">
                                 <img src="./assets/images/skills/cpp.png" alt="C++ icon">
                                 <h4>C++</h4>
                             </div>
-                            <div>
+                            <div style="display: flex; flex-direction: column; align-items: center;">
                                 <img src="./assets/images/skills/html.png" alt="HTML icon">
                                 <h4>HTML</h4>
                             </div>
-                            <div>
+                            <div style="display: flex; flex-direction: column; align-items: center;">
                                 <img src="./assets/images/skills/css.png" alt="CSS icon">
                                 <h4>CSS</h4>
                             </div>
-                            <div>
+                            <div style="display: flex; flex-direction: column; align-items: center;">
                                 <img src="./assets/images/skills/javaScript.png" alt="JavaScript icon">
                                 <h4>JavaScript</h4>
                             </div>
-                            <div>
+                            <div style="display: flex; flex-direction: column; align-items: center;">
                                 <img src="./assets/images/skills/typeScript.png" alt="JavaScript icon">
                                 <h4>TypeScript</h4>
                             </div>
-                            <div>
+                            <div style="display: flex; flex-direction: column; align-items: center;">
                                 <img src="./assets/images/skills/react.png" alt="React icon">
                                 <h4>React</h4>
                             </div>
-                            <div>
+                            <div style="display: flex; flex-direction: column; align-items: center;">
                                 <img src="./assets/images/skills/redux.png" alt="Redux icon">
                                 <h4>Redux</h4>
                             </div>
-                            <div>
+                            <div style="display: flex; flex-direction: column; align-items: center;">
                                 <img src="./assets/images/skills/node.png" alt="Redux icon">
                                 <h4>Node</h4>
                             </div>
-                            <div>
+                            <div style="display: flex; flex-direction: column; align-items: center;">
                                 <img src="./assets/images/skills/mongoDB.png" alt="Redux icon">
                                 <h4>MongoDB</h4>
                             </div>
-                            <div>
+                            <div style="display: flex; flex-direction: column; align-items: center;">
                                 <img src="./assets/images/skills/sql.png" alt="Redux icon">
                                 <h4>SQL</h4>
                             </div>
-                            <div>
+                            <div style="display: flex; flex-direction: column; align-items: center;">
                                 <img src="./assets/images/skills/git.png" alt="Git icon">
                                 <h4>Git</h4>
                             </div>
-                            <div>
+                            <div style="display: flex; flex-direction: column; align-items: center;">
                                 <img src="./assets/images/skills/gitHub.png" alt="GitHub icon">
                                 <h4>GitHub</h4>
                             </div>
-                            <div>
-                                <img id="next-icon" src="./assets/images/skills/next.png" alt="Next.js icon"
-                                    style="width: 300px">
+                            <div style="display: flex; flex-direction: column; align-items: center;">
+                                <img src="./assets/images/skills/next.png" alt="Next.js icon"">
                                 <h4>Next.js</h4>
                             </div>
-                            <div>
-                                <img src="./assets/images/skills/python.png" alt="Python icon">
+                                <div style=" display: flex; flex-direction: column; align-items: center;">
+                                <img src="./assets/images/skills/python.png" alt="Python icon"">
                                 <h4>Python</h4>
                             </div>
-                            <div>
+                                <div style=" display: flex; flex-direction: column; align-items: center;">
                                 <img src="./assets/images/skills/docker.png" alt="Docker icon"
                                     style="border-radius: 50%;">
                                 <h4>Docker</h4>
                             </div>
-                            <div>
+                            <div style="display: flex; flex-direction: column; align-items: center;">
                                 <img src="./assets/images/skills/vsCode.png" alt="VS Code icon" style="width: 50px;">
                                 <h4>VSCode</h4>
                             </div>
