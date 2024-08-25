@@ -47,6 +47,85 @@
 </head>
 
 <body>
+    
+    <style>
+        @media screen and (max-width: 999px) {
+            .navbar ul {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: inherit;
+                flex-direction: column;
+                align-items: center;
+                z-index: 1000;
+            }
+            .navbar ul.show {
+                display: flex;
+            }
+            .navbar li {
+                width: 100%;
+                text-align: left;
+            }
+            .navbar li a {
+                padding: 15px;
+                width: 100%;
+                display: block;
+            }
+            .hamburger {
+                display: block;
+                cursor: pointer;
+                padding: 10px;
+            }
+            .hamburger div {
+                width: 25px;
+                height: 3px;
+                background-color: currentColor;
+                margin: 5px 0;
+                transition: 0.4s;
+            }
+            .hamburger.active div:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+            .hamburger.active div:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active div:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+        }
+        @media screen and (min-width: 1000px) {
+            .hamburger {
+                display: none;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const hamburger = document.querySelector('.hamburger');
+            const navUl = document.querySelector('.navbar ul');
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navUl.classList.toggle('show');
+            });
+
+            // Close menu when a link is clicked
+            document.querySelectorAll('.navbar ul li a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navUl.classList.remove('show');
+                });
+            });
+        });
+    </script>
+    <div class="hamburger" style="padding: 20px; margin-left: 10px; margin-top: 10px;">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    
     <nav class="navbar">
         <ul>
             <li><a href="#home" onclick="scrollToSection('home'); return false;">Home</a></li>
