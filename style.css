@@ -7601,7 +7601,7 @@ blockquote {
 }
 
 For light mode body:not(.dark-mode) .project-tab {
-    color: #333;
+    color: #9c9c9c;
 }
 
 body.dark-mode .project-tab {
