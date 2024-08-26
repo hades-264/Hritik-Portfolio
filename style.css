@@ -4025,6 +4025,7 @@ blockquote {
 .padding-vertical.padding-xlarge,
 .padding-vertical.padding-medium,
 .padding-vertical.padding-xxhuge {
+    padding-top: 0.1rem;
     padding-left: 0;
     padding-right: 0;
 }
@@ -8064,13 +8065,13 @@ body.dark-mode .content-block {
 }
 
 .padding-vertical-home-header {
-    padding-top: 10rem;
+    padding-top: 5rem;
     padding-bottom: 1rem;
 }
 
 @media screen and (max-width: 999px) {
     .padding-vertical-home-header {
-        padding-top: 4rem;
+        padding-top: 1rem;
     }
 }
 
@@ -8267,4 +8268,32 @@ body {
         margin: 10px;
         -webkit-tap-highlight-color: transparent;
     }
+}
+
+#skills {
+    padding-top: 8rem;
+}
+
+#experience{
+    padding-top: 6rem;
+}
+
+#projects {
+    padding-top: 8rem;
+}
+
+#projects-heading{
+    margin-bottom: 1rem;
+}
+
+#education{
+    padding-top: 8rem;
+}
+
+#extraCurricular{
+    padding-top: 6rem;
+}
+
+#contact{
+    padding-top: 5rem;
 }
