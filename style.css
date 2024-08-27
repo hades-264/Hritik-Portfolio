@@ -4025,7 +4025,7 @@ blockquote {
 .padding-vertical.padding-xlarge,
 .padding-vertical.padding-medium,
 .padding-vertical.padding-xxhuge {
-    padding-top: 0.1rem;
+    padding-top: 2rem;
     padding-left: 0;
     padding-right: 0;
 }
@@ -5521,7 +5521,7 @@ blockquote {
     background-position: 0px;
     background-size: cover;
     /* background-position: -50px; */
-    background-size: 100%;  
+    background-size: 100%;
     top: -12%;
     left: -6%;
     right: 0%;
@@ -7863,7 +7863,7 @@ body.dark-mode .tablinks.active {
 }
 
 .project-tab.active {
-    border-bottom: 2px solid #333;
+    border-bottom: 2px solid #ccc;
     font-weight: 500;
 }
 
@@ -8274,7 +8274,7 @@ body {
     padding-top: 6rem;
 }
 
-#experience{
+#experience {
     padding-top: 6rem;
 }
 
@@ -8282,18 +8282,34 @@ body {
     padding-top: 5rem;
 }
 
-#projects-heading{
+#projects-heading {
     margin-bottom: 2rem;
 }
 
-#education{
+#education {
     padding-top: 6rem;
 }
 
-#extraCurricular{
+#extraCurricular {
     padding-top: 6rem;
 }
 
-#contact{
+#contact {
     padding-top: 5rem;
+}
+
+.dark-mode .tab {
+    background-color: #aaa;
+}
+
+.dark-mode .tab .tablinks {
+    border-left: 3px solid #ddd;
+}
+
+.dark-mode .tab .tablinks:hover {
+    background-color: #eee;
+}
+
+.dark-mode .tab .tablinks.active {
+    border-left: 3px solid #777;
 }
