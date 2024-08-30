@@ -8351,7 +8351,7 @@ body {
 
 /* Dark mode styles */
 body.dark-mode .content-block.profile {
-    background-color: #2a2a2a;
+    background-color: #2c2c2c;
     box-shadow: 6px 5px 15px rgba(0, 0, 0, 0.3), -8px -6px 15px rgba(255, 255, 255, 0.05);
 }
 
