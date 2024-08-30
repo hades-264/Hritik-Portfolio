@@ -4111,7 +4111,7 @@ blockquote {
 }
 
 .padding-xlarge {
-    padding: 4rem;
+    padding: 3rem;
 }
 
 .styleguide-header {
@@ -8312,4 +8312,135 @@ body {
 
 .dark-mode .tab .tablinks.active {
     border-left: 3px solid #777;
+}
+
+.coding-profiles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+    gap: 20px;
+}
+
+.content-block.profile {
+    text-align: center;
+    padding: 30px;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+    background-color: var(--card-bg-color);
+    box-shadow: var(--card-shadow);
+}
+
+.content-block.profile:hover {
+    transform: translateY(-5px);
+}
+
+.profile-logo {
+    width: 200px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.content-block.profile a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.text-size-medium {
+    font-size: 1rem;
+}
+
+/* Dark mode styles */
+body.dark-mode .content-block.profile {
+    background-color: #2a2a2a;
+    box-shadow: 6px 5px 15px rgba(0, 0, 0, 0.3), -8px -6px 15px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .text-size-medium {
+    color: #e0e0e0;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .coding-profiles-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .profile-logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .text-size-medium {
+        font-size: 0.8rem;
+    }
+}
+
+.extraCurricular-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.extraCurricular-card {
+    background-color: var(--card-bg-color);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--card-shadow);
+}
+
+.extraCurricular-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.1), -8px -8px 20px rgba(255, 255, 255, 0.5);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.card-description {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.card-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--tab-bg-color);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.card-link:hover {
+    background-color: var(--tab-hover-color);
+}
+
+/* Dark mode styles */
+body.dark-mode .extraCurricular-card {
+    background-color: #2a2a2a;
+    box-shadow: 6px 5px 15px rgba(0, 0, 0, 0.3), -8px -6px 15px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .card-description {
+    color: #e0e0e0;
+}
+
+body.dark-mode .card-link {
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+}
+
+body.dark-mode .card-link:hover {
+    background-color: #4a4a4a;
 }
