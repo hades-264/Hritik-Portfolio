@@ -8444,3 +8444,201 @@ body.dark-mode .card-link {
 body.dark-mode .card-link:hover {
     background-color: #4a4a4a;
 }
+
+
+@media screen and (max-width: 999px) {
+    .navbar ul {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: inherit;
+        flex-direction: column;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .navbar ul.show {
+        display: flex;
+    }
+
+    .navbar li {
+        width: 100%;
+        text-align: left;
+    }
+
+    .navbar li a {
+        padding: 15px;
+        width: 100%;
+        display: block;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: rgba(58, 57, 57, 0.689);
+        margin: 5px 0;
+        transition: 0.4s;
+    }
+
+    .hamburger.active div:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger.active div:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active div:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .hamburger {
+        display: none;
+    }
+}
+
+body.dark-mode .hamburger div {
+    background-color: #f4f4f4ee;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.mode-toggle {
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+
+  .navbar ul li a {
+      transition: color 0.3s ease;
+  }
+
+  /* Light mode hover effect */
+  body:not(.dark-mode) .navbar ul li a:hover {
+      color: #2287f4;
+      /* Bright blue for light mode */
+  }
+
+  /* Dark mode hover effect */
+  body.dark-mode .navbar ul li a:hover {
+      color: #ff1100;
+      /* Cyan for dark mode */
+  }
+
+  .navbar ul li a {
+      position: relative;
+  }
+
+  .navbar ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: currentColor;
+      transition: width 0.3s ease;
+  }
+
+  .navbar ul li a:hover::after {
+      width: 100%;
+  }
+
+  /* Adjust color for light and dark modes */
+  body:not(.dark-mode) .navbar ul li a::after {
+      background-color: #2287f4;
+      /* Bright blue for light mode */
+  }
+
+  body.dark-mode .navbar ul li a::after {
+      background-color: #ff1100;
+      /* Cyan for dark mode */
+  }
+
+  :root {
+      --bg-color: #ffffff;
+      --text-color: #333333;
+      --tab-bg-color: #f1f1f1;
+      --tab-hover-color: #ddd;
+      --tab-active-border-color: #555;
+      --card-bg-color: #ffffff;
+      --card-shadow: 6px 5px 15px rgba(0, 0, 0, .15), -8px -6px 15px #fff;
+  }
+
+  .tab {
+      flex: 0 0 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: var(--tab-bg-color);
+      transition: height 0.3s ease;
+      border-radius: 1rem;
+      /* Added border radius to tab */
+      overflow: hidden;
+      /* Ensure child elements don't overflow rounded corners */
+  }
+
+  .tab .tablinks {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      background-color: inherit;
+      color: var(--text-color);
+      padding: 10px;
+      width: 100%;
+      border: none;
+      outline: none;
+      text-align: left;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 17px;
+      border-left: 3px solid var(--tab-bg-color);
+  }
+
+
+  @media screen and (max-width: 767px) {
+
+      .tab {
+          flex: none;
+          flex-direction: row;
+          overflow-x: auto;
+          width: 100%;
+          height: auto !important;
+          border-radius: 0;
+          /* Remove border radius for mobile view */
+      }
+
+      .tab .tablinks {
+          flex: 0 0 auto;
+          height: 50px;
+          white-space: nowrap;
+          border-radius: 16px;
+          /* Keep border radius for individual tabs on mobile */
+          justify-content: center;
+          align-items: center;
+          padding-left: 1.5rem;
+          padding-right: 1.5rem;
+          font-size: 18px;
+          font-weight: 500;
+          line-height: 1.4;
+          display: flex;
+          margin: 10px;
+          -webkit-tap-highlight-color: transparent;
+      }
+  }
+
