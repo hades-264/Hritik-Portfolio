@@ -1,4 +1,4 @@
-## Hritik Portfolio
+# Hritik Portfolio
 
 ### About Portfolio
 
