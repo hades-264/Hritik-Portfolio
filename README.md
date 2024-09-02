@@ -1,6 +1,4 @@
-# Hritik Portfolio
-
-### About Portfolio
+## About Portfolio
 
 This is a sleek and modern portfolio website showcasing my projects, coding profiles, and social handles. Built with HTML, CSS, and JavaScript, it offers a clean and responsive user experience. 
 
