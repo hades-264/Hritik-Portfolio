@@ -31,6 +31,20 @@
 </head>
 
 <body>
+
+    <div id="visitorCounter" style="display: none; justify-content: center; ">
+        Visitors: <span id="visitorCount">0</span>
+    </div>
+    
+    <script>
+        let visitorCount = localStorage.getItem('visitorCount') || 0;
+        visitorCount++;
+        localStorage.setItem('visitorCount', visitorCount);
+
+        document.getElementById('visitorCount').innerText = visitorCount;
+        document.getElementById('visitorCounter').style.display = 'block';
+    </script>
+
     <div class="hamburger" style="padding: 20px;">
         <div></div>
         <div></div>
