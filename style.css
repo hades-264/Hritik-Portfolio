@@ -5486,7 +5486,7 @@ blockquote {
     grid-column-gap: 2rem;
     grid-row-gap: 2rem;
     grid-template-rows: auto;
-    margin-top: -8vh;
+    margin-top: -5vh;
 }
 
 .shape-image-header {
@@ -8257,27 +8257,27 @@ body {
 }
 
 #experience {
-    padding-top: 6rem;
+    padding-top: 0rem;
 }
 
 #projects {
-    padding-top: 5rem;
+    padding-top: 1rem;
 }
 
 #projects-heading {
-    margin-bottom: 2rem;
+    margin-bottom: 0rem;
 }
 
 #education {
-    padding-top: 6rem;
+    padding-top: 1rem;
 }
 
 #extraCurricular {
-    padding-top: 6rem;
+    padding-top: 1rem;
 }
 
 #contact {
-    padding-top: 5rem;
+    padding-top: 1rem;
 }
 
 .dark-mode .tab {
@@ -8623,4 +8623,3 @@ body.dark-mode .navbar ul li a::after {
         -webkit-tap-highlight-color: transparent;
     }
 }
-
