@@ -3716,20 +3716,22 @@ blockquote {
     text-decoration: none;
     transition: all .4s cubic-bezier(.215, .61, .355, 1);
     display: flex;
-    box-shadow: 6px 8px 15px rgba(0, 0, 0, .15), -8px -6px 15px #fff;
+    box-shadow: 6px 8px 15px rgba(0, 0, 0, .15);
 }
 
 .social-link div {
     font-size: 25px;
 }
 
+/* 
 .social-link:hover {
     box-shadow: 10px 13px 20px rgba(0, 0, 0, .15), -13px -10px 20px #fff;
-}
+} */
 
+/* 
 .social-link:active {
-    box-shadow: inset 7px 8px 10px rgba(0, 0, 0, .15), inset -8px -7px 10px #fff;
-}
+    border-color: 7px 8px 10px rgba(252, 247, 247, 0.15);
+} */
 
 .text-style-nowrap {
     white-space: nowrap;
@@ -8625,3 +8627,7 @@ body.dark-mode .navbar ul li a::after {
     }
 }
 
+html{
+    margin-left: 10%;
+    margin-right: 10%;
+}
