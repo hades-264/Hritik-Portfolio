@@ -7434,8 +7434,8 @@ blockquote {
 
 @media screen and (max-width: 767px) {
     .experience-component .tab {
-        flex-direction: row;
-        overflow: scroll;
+        flex-direction: column;
+        overflow: auto;
         -ms-overflow-style: none;
         /* IE and Edge */
         scrollbar-width: none;
@@ -7448,39 +7448,37 @@ blockquote {
     }
 
     .experience-component .tab .tablinks {
-        height: 50px;
+        height: 40px;
         color: gray;
         white-space: nowrap;
         background-color: #f1f1f1;
-        border: 2px solid rgba(255, 255, 255, 0);
+        border: 0.5px solid rgba(255, 255, 255, 0);
         border-radius: 16px;
-        justify-content: center;
+        justify-content: content;
         align-items: center;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-        font-size: 18px;
+        font-size: 20px;
         font-weight: 500;
         line-height: 1.4;
         transition: all .4s;
         display: flex;
         box-shadow: 6px 5px 15px rgba(0, 0, 0, .15), -8px -6px 15px #fff;
-        margin: 10px;
+        /* margin: 10px; */
         -webkit-tap-highlight-color: transparent;
     }
-
+/* 
     .experience-component .tab .tablinks:hover {
         border-color: rgba(255, 255, 255, .05);
         box-shadow: 10px 13px 20px rgba(0, 0, 0, .15), -13px -10px 20px #fff;
-    }
+    } */
 
-    .experience-component .tab .tablinks:active {
-        box-shadow: inset -8px -7px 10px #fff, inset 8px 7px 10px rgba(0, 0, 0, .15);
-    }
+    /* .experience-component .tab .tablinks:active {
+         box-shadow: inset -8px -7px 10px #fff, inset 8px 7px 10px rgba(0, 0, 0, .15); 
+    } */
 
-    .experience-component .tab .tablinks.active {
+    /* .experience-component .tab .tablinks.active {
         border: none;
         box-shadow: inset -8px -7px 10px #fff, inset 8px 7px 10px rgba(0, 0, 0, .15);
-    }
+    } */
 }
 
 /* Projects Section */
@@ -8624,5 +8622,11 @@ body.dark-mode .navbar ul li a::after {
         display: flex;
         margin: 10px;
         -webkit-tap-highlight-color: transparent;
+    }
+}
+
+@media screen and (max-width: 1110){
+    #w-node-_4ce62411-fbe3-1282-8ccc-11c11e54fabd-75c95745{
+        margin-left: 20px;
     }
 }
