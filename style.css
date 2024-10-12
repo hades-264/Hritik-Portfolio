@@ -8626,8 +8626,3 @@ body.dark-mode .navbar ul li a::after {
         -webkit-tap-highlight-color: transparent;
     }
 }
-
-html{
-    margin-left: 10%;
-    margin-right: 10%;
-}
