@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hritik Dethaliya - Software Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            colors: {
+              // Dark Theme Palette
+              primary: "#3b82f6", // Blue-500 (slightly brighter for dark mode contrast)
+              "primary-light": "#60a5fa", // Blue-400
+              accent: "#06b6d4", // Cyan-500
+              "accent-light": "#22d3ee", // Cyan-400
+
+              dark: "#e5e7eb", // Gray-200 (For primary text on dark bg)
+              "dark-light": "#d1d5db", // Gray-300 (For secondary text)
+
+              light: "#0f172a", // Slate-900 (Main dark background)
+              "gray-soft": "#94a3b8", // Slate-400 (For less prominent text or subtle borders)
+
+              // Backgrounds for cards and elements
+              "bg-primary": "#1e293b", // Slate-800 (Primary card background)
+              "bg-secondary": "#334155", // Slate-700 (Slightly lighter card elements or borders)
+              "border-color": "#475569", // Slate-600 (For borders)
+            },
+            animation: {
+              "fade-in": "fadeIn 0.8s ease-out",
+              "slide-up": "slideUp 0.6s ease-out",
+              float: "float 4s ease-in-out infinite",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              slideUp: {
+                "0%": { transform: "translateY(30px)", opacity: "0" },
+                "100%": { transform: "translateY(0)", opacity: "1" },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0px)" },
+                "50%": { transform: "translateY(-8px)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        /* Dark theme gradient background */
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        /* slate-900 to slate-800 */
+        color: #e5e7eb;
+        /* text-gray-200 equivalent (Tailwind 'dark' in new config) */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1.6;
+      }
+
+      .content-wrapper {
+        max-width: 768px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+      }
+
+      /* Background decoration adjusted for dark theme */
+      .bg-decoration {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+        opacity: 0.05;
+        /* Reduced opacity for dark theme */
+      }
+
+      .decoration-circle {
+        position: absolute;
+        border-radius: 50%;
+        /* Brighter gradient for dark theme visibility */
+        background: linear-gradient(135deg, #3b82f6, #06b6d4);
+        /* primary to accent */
+      }
+
+      .decoration-circle:nth-child(1) {
+        width: 300px;
+        height: 300px;
+        top: 10%;
+        right: -150px;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .decoration-circle:nth-child(2) {
+        width: 200px;
+        height: 200px;
+        bottom: 20%;
+        left: -100px;
+        animation: float 8s ease-in-out infinite reverse;
+      }
+
+      /* Card styling for dark theme */
+      .card {
+        background: rgba(30, 41, 59, 0.75);
+        /* slate-800 with some transparency */
+        backdrop-filter: blur(12px);
+        border: 1px solid #334155;
+        /* slate-700 (Tailwind 'bg-secondary' in new config) */
+        border-radius: 16px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        /* Softer shadow for dark theme */
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 25px rgba(0, 0, 0, 0.2);
+        /* Adjusted shadow for dark theme */
+        border-color: #475569;
+        /* slate-600 (Tailwind 'border-color' in new config) */
+      }
+
+      /* Typography for dark theme */
+      h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        color: #f1f5f9;
+        /* slate-100 */
+        margin-bottom: 1rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #60a5fa;
+        /* primary-light (Tailwind blue-400) for headings */
+        margin-top: 3rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 3px solid #334155;
+        /* slate-700 */
+        position: relative;
+      }
+
+      h2::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        /* To sit on the border */
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(135deg, #3b82f6, #06b6d4);
+        /* primary to accent */
+        border-radius: 2px;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #cbd5e1;
+        /* slate-300 */
+        margin-bottom: 0.75rem;
+      }
+
+      /* Links for dark theme */
+      a {
+        color: #22d3ee;
+        /* accent-light (Tailwind cyan-400) */
+        text-decoration: none;
+        transition: all 0.2s ease;
+        font-weight: 500;
+      }
+
+      a:hover {
+        color: #67e8f9;
+        /* cyan-300 */
+        text-decoration: underline;
+      }
+
+      /* Skill tags for dark theme */
+      .skill-tag {
+        display: inline-block;
+        background: linear-gradient(135deg, #1e293b, #334155);
+        /* slate-800 to slate-700 */
+        color: #94a3b8;
+        /* slate-400 */
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+        border: 1px solid #475569;
+        /* slate-600 */
+        transition: all 0.2s ease;
+      }
+
+      .skill-tag:hover {
+        background: linear-gradient(135deg, #334155, #475569);
+        /* slate-700 to slate-600 */
+        color: #e2e8f0;
+        /* slate-200 */
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        /* Adjusted shadow */
+      }
+
+      /* Navigation for dark theme */
+      .header-nav a {
+        color: #94a3b8;
+        /* slate-400 */
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+      }
+
+      .header-nav a:hover {
+        color: #e2e8f0;
+        /* slate-200 */
+        background: rgba(51, 65, 85, 0.5);
+        /* slate-700 with transparency */
+        text-decoration: none;
+      }
+
+      /* Icon links for dark theme */
+      .icon-link {
+        display: inline-flex;
+        align-items: center;
+        transition: all 0.2s ease;
+        color: #60a5fa;
+        /* primary-light */
+      }
+
+      .icon-link:hover {
+        transform: translateX(4px);
+        color: #93c5fd;
+        /* blue-300 */
+      }
+
+      .icon-link svg {
+        width: 18px;
+        height: 18px;
+        margin-right: 0.5rem;
+        transition: all 0.2s ease;
+      }
+
+      /* Project cards for dark theme */
+      .project-card::before {
+        /* Gradient remains the same, should look good on dark */
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(135deg, #3b82f6, #06b6d4);
+        /* primary to accent */
+        border-radius: 16px 16px 0 0;
+      }
+
+      /* Contact section for dark theme */
+      .contact-section {
+        background: linear-gradient(
+          135deg,
+          rgba(30, 41, 59, 0.3),
+          /* slate-800 with alpha */ rgba(51, 65, 85, 0.3)
+            /* slate-700 with alpha */
+        );
+        border: 1px solid #334155;
+        /* slate-700 */
+        border-radius: 16px;
+        padding: 2rem;
+        margin-top: 2rem;
+      }
+
+      /* Primary button (gradient already good for dark theme) */
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        background: linear-gradient(135deg, #3b82f6, #0891b2);
+        /* primary-light to accent-light */
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 15px rgba(59, 130, 246, 0.3);
+        /* Adjusted primary shadow */
+        color: white;
+        text-decoration: none;
+      }
+
+      /* Footer for dark theme */
+      footer {
+        margin-top: 3rem;
+        padding: 2rem 0;
+        text-align: center;
+        border-top: 1px solid #334155;
+        /* slate-700 */
+        color: #94a3b8;
+        /* slate-400 */
+      }
+
+      /* Responsive adjustments (largely unchanged, colors updated by parent/config) */
+      @media (max-width: 640px) {
+        h1 {
+          font-size: 2.5rem;
+        }
+
+        .content-wrapper {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+
+        .card {
+          padding: 1.5rem;
+        }
+      }
+
+      /* Animations (unchanged) */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease;
+      }
+
+      .animate-on-scroll.animated {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Social icons styling for dark theme */
+      .social-icons a {
+        margin: 0 10px;
+        font-size: 18px;
+        color: #94a3b8;
+        /* slate-400 */
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .social-icons a:hover {
+        color: #22d3ee;
+        /* accent-light */
+      }
+
+      /* Ensure Lucide icons in buttons get the correct color */
+      .btn-primary svg {
+        color: white;
+        /* Or inherit if set on button */
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+
+  <body class="font-sans">
+    <!-- Background decoration elements -->
+    <div class="bg-decoration">
+      <div class="decoration-circle"></div>
+      <div class="decoration-circle"></div>
+    </div>
+
+    <div class="content-wrapper px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+      <!-- Header / Intro -->
+      <header class="mb-16 animate-fade-in">
+        <div
+          class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6"
+        >
+          <!-- Text color will be inherited from body or set by Tailwind 'dark' config -->
+          <h1
+            class="text-dark dark:text-light"
+            style="
+              color: rgb(229 231 235 / var(--tw-text-opacity, 1));
+              margin-left: 10px;
+              font-size: 30px;
+            "
+          >
+            Hritik Dethaliya
+          </h1>
+          <nav class="header-nav mt-4 sm:mt-0 space-x-2 text-sm">
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+
+        <div class="card animate-slide-up">
+          <div class="flex items-center mb-4">
+            <div
+              class="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center mr-4"
+            >
+              <!-- Lucide icon, color set by SVG stroke or fill if needed, often inherits text color -->
+              <script>
+                document.write(lucide.Code({ class: "text-white" }));
+              </script>
+            </div>
+            <!-- Text color needs to adapt to dark theme -->
+            <p class="text-xl font-semibold text-dark-light dark:text-dark">
+              <span style="margin-left: 10px"></span> Software Developer
+              specializing in MERN Stack and
+              <span style="margin-left: 10px">Spring Boot</span>
+            </p>
+          </div>
+          <!-- Text color needs to adapt -->
+          <p class="text-gray-soft dark:text-dark-light leading-relaxed">
+            Hi, I'm Hritik! I graduated from
+            <span class="font-semibold text-primary"
+              >Jabalpur Engineering College</span
+            >
+            with a degree in Information Technology. I'm passionate about
+            building clean, efficient web applications and solving complex
+            problems.
+          </p>
+        </div>
+      </header>
+
+      <!-- Skills Section -->
+      <section id="skills" class="mb-16 animate-on-scroll">
+        <h2 style="font-size: 28px">Core Skills</h2>
+        <div class="flex flex-wrap mt-6">
+          <!-- Skill tags will be restyled by the new .skill-tag CSS -->
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">C++</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">React.js</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Express.js</span>
+          <span class="skill-tag">Spring Boot</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">Git & GitHub</span>
+          <span class="skill-tag">REST APIs</span>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="mb-16 animate-on-scroll">
+        <h2 style="font-size: 28px">Professional Experience</h2>
+        <div style="margin-bottom: 20px"></div>
+
+        <div class="card mb-6">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h3 class="text-primary" style="font-size: 18px">
+                System Engineer
+              </h3>
+              <p
+                class="font-semibold text-dark dark:text-light"
+                style="color: #d1d5db; font-size: 14px"
+              >
+                Tata Consultancy Services
+                <span
+                  class="text-gray-soft dark:text-dark-light font-normal text-sm ml-2"
+                  >April 2025 – Present</span
+                >
+              </p>
+            </div>
+            <div
+              class="w-10 h-10 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center flex-shrink-0 ml-4"
+            >
+              <script>
+                document.write(lucide.Briefcase({ class: "text-white" }));
+              </script>
+            </div>
+          </div>
+          <ul
+            class="list-disc list-inside text-gray-soft dark:text-dark-light space-y-2 leading-relaxed pl-4"
+          >
+            <li>
+              Contributed to the development of a new client portal using React
+              and Node.js, focusing on frontend components and API integration.
+            </li>
+            <li>
+              Participated in Agile sprints, daily stand-ups, and code reviews,
+              improving code quality and team collaboration.
+            </li>
+            <li>
+              Assisted in debugging and resolving issues in existing
+              applications, enhancing application stability.
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h3 class="text-primary" style="font-size: 18px">
+                Competitive Programming
+              </h3>
+              <p
+                class="font-semibold text-dark dark:text-light"
+                style="color: #d1d5db; font-size: 14px"
+              >
+                Various Platforms
+                <span
+                  class="text-gray-soft dark:text-dark-light font-normal text-sm ml-2"
+                  >2020 – Present</span
+                >
+              </p>
+            </div>
+            <div
+              class="w-10 h-10 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center flex-shrink-0 ml-4"
+            >
+              <script>
+                document.write(lucide.Award({ class: "text-white" }));
+              </script>
+            </div>
+          </div>
+          <ul
+            class="list-disc list-inside text-gray-soft dark:text-dark-light space-y-2 leading-relaxed pl-4"
+          >
+            <li>
+              Actively participate in contests on Codeforces (Max Rating: 1079),
+              LeetCode (350+ problems solved), and CodeChef (Rating: 1500+).
+            </li>
+            <li>
+              Consistently solve problems focusing on data structures,
+              algorithms, and mathematical logic.
+            </li>
+            <li>
+              Achieved
+              <span class="text-primary font-semibold"
+                >"Top 5% in Google KickStart Coding Challenge"</span
+              >.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="mb-16 animate-on-scroll">
+        <h2 style="font-size: 28px">Featured Projects</h2>
+        <div style="margin-bottom: 20px"></div>
+
+        <div class="project-card card">
+          <div class="flex items-start justify-between mb-4">
+            <h3 class="text-primary" style="font-size: 18px">
+              FoodMart - An E-Commerce platform for Grocery
+            </h3>
+            <div
+              class="w-10 h-10 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center flex-shrink-0 ml-4"
+            >
+              <script>
+                document.write(lucide.ShoppingCart({ class: "text-white" }));
+              </script>
+            </div>
+          </div>
+          <p class="text-gray-soft dark:text-dark-light mb-4 leading-relaxed">
+            A full-featured e-commerce platform built with Java. Includes user
+            authentication, product catalog, shopping cart, order processing,
+            and an admin dashboard for managing products and users.
+          </p>
+          <p class="text-sm mb-6 text-dark-light dark:text-dark font-medium">
+            <strong>Technologies:</strong> Java, JSP, CSS, JavaScript, Derby,
+            JDBC
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="https://github.com/hades-264/FoodMart"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="icon-link"
+            >
+              <script>
+                document.write(lucide.Github());
+              </script>
+              View Code
+            </a>
+            <!-- <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="icon-link"
+            >
+              <script>
+                document.write(lucide.ExternalLink());
+              </script>
+              Live Demo
+            </a> -->
+          </div>
+        </div>
+
+        <div class="project-card card mt-6">
+          <!-- Added mt-6 for spacing -->
+          <div class="flex items-start justify-between mb-4">
+            <h3 class="text-primary" style="font-size: 18px">
+              TaskMaster - Collaborative real-time communication App
+            </h3>
+            <div
+              class="w-10 h-10 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center flex-shrink-0 ml-4"
+            >
+              <script>
+                document.write(lucide.CheckSquare({ class: "text-white" }));
+              </script>
+            </div>
+          </div>
+          <p class="text-gray-soft dark:text-dark-light mb-4 leading-relaxed">
+            Developed a collaborative code editor, enabling real-time
+            synchronization and collaboration among multiple users, improving
+            coding efficiency by 40%. Implemented user authentication, session
+            management, and scalable data storage with MongoDB; ensured CI/CD
+            with GitHub Actions and Docker.
+          </p>
+          <p class="text-sm mb-6 text-dark-light dark:text-dark font-medium">
+            <strong>Technologies:</strong> React, Context API, Node.js, Express,
+            MongoDB, Socket.io
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="https://github.com/hades-264/taskmaster"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="icon-link"
+            >
+              <script>
+                document.write(lucide.Github());
+              </script>
+              View Code
+            </a>
+          </div>
+        </div>
+
+        <!-- <div class="project-card card mt-6">
+          <div class="flex items-start justify-between mb-4">
+            <h3 class="text-primary" style="font-size: 18px">
+              CP Arena - Contest Tracker
+            </h3>
+            <div
+              class="w-10 h-10 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center flex-shrink-0 ml-4"
+            >
+              <script>
+                document.write(lucide.Trophy({ class: "text-white" }));
+              </script>
+            </div>
+          </div>
+          <p class="text-gray-soft dark:text-dark-light mb-4 leading-relaxed">
+            A web application that aggregates competitive programming contest
+            schedules from various platforms (Codeforces, LeetCode, AtCoder).
+            Users can filter contests and set reminders.
+          </p>
+          <p class="text-sm mb-6 text-dark-light dark:text-dark font-medium">
+            <strong>Technologies:</strong> React, Node.js, Express, Cheerio (for
+            scraping)
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="https://github.com/yourusername/cp-arena"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="icon-link"
+            >
+              <script>
+                document.write(lucide.Github());
+              </script>
+              View Code
+            </a>
+          </div>
+        </div> -->
+      </section>
+
+      <!-- Coding Profiles Section -->
+      <section id="coding-profiles" class="mb-16 animate-on-scroll">
+        <!-- Changed ID for clarity -->
+        <h2 style="font-size: 28px">Coding Profiles</h2>
+        <div class="flex flex-wrap mt-6">
+          <span class="skill-tag">
+            <a
+              href="https://github.com/hades-264"
+              target="_blank"
+              style="text-decoration: none; color: inherit"
+            >
+              <div class="text-size-medium">GitHub</div>
+            </a>
+          </span>
+          <span class="skill-tag">
+            <a
+              href="https://codeforces.com/profile/Hritik_git"
+              target="_blank"
+              style="text-decoration: none; color: inherit"
+            >
+              <div class="text-size-medium">Codeforces</div>
+            </a>
+          </span>
+          <span class="skill-tag">
+            <a
+              href="https://leetcode.com/hades_264/"
+              target="_blank"
+              style="text-decoration: none; color: inherit"
+            >
+              <div class="text-size-medium">LeetCode</div>
+            </a>
+          </span>
+          <span class="skill-tag">
+            <a
+              href="https://www.codechef.com/users/hritik_git"
+              target="_blank"
+              style="text-decoration: none; color: inherit"
+            >
+              <div class="text-size-medium">CodeChef</div>
+            </a>
+          </span>
+          <span class="skill-tag">
+            <a
+              href="https://atcoder.jp/users/Hades_264"
+              target="_blank"
+              style="text-decoration: none; color: inherit"
+            >
+              <div class="text-size-medium">AtCoder</div>
+            </a>
+          </span>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="mb-12 animate-on-scroll">
+        <h2 style="font-size: 28px">Let's Connect</h2>
+        <div class="contact-section">
+          <div class="flex items-center mb-4">
+            <div
+              class="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center mr-4"
+            >
+              <script>
+                document.write(lucide.MessageCircle({ class: "text-white" }));
+              </script>
+            </div>
+            <div>
+              <h3 class="text-primary mb-0">Ready to collaborate?</h3>
+              <p class="text-gray-soft dark:text-dark-light mb-0">
+                I'm always excited to discuss new projects and opportunities.
+              </p>
+            </div>
+          </div>
+          <div style="margin-bottom: 40px"></div>
+          <div class="grid gap-4 mt-6">
+            <div
+              class="social-icons"
+              style="display: flex; justify-content: space-around"
+            >
+              <a
+                href="https://linkedin.com/in/hritik-dethaliya"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="icon-link"
+              >
+                <i class="fab fa-linkedin fa-2x"></i>
+              </a>
+              <a
+                href="https://twitter.com/hritikDethaliya"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="icon-link"
+              >
+                <i class="fab fa-twitter fa-2x"></i>
+              </a>
+              <a
+                href="https://github.com/hades-264"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="icon-link"
+              >
+                <i class="fab fa-github fa-2x"></i>
+              </a>
+              <a href="mailto:hritikcode1400@gmail.com" class="icon-link">
+                <i class="fas fa-envelope fa-2x"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>
+          &copy; <span id="currentYear"></span> Hritik Dethaliya. Built with
+          passion and precision.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      // Set current year in footer
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+
+      // Ensure Lucide icons are rendered
+      window.addEventListener("load", () => {
+        if (
+          typeof lucide !== "undefined" &&
+          typeof lucide.createIcons === "function"
+        ) {
+          lucide.createIcons();
+        }
+      });
+
+      // Simple scroll animation
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animated");
+          }
+        });
+      }, observerOptions);
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const elements = document.querySelectorAll(".animate-on-scroll");
+        elements.forEach((el) => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>
