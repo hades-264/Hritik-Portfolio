@@ -267,8 +267,7 @@
       }
 
       /* Project cards for dark theme */
-      .project-card::before {
-        /* Gradient remains the same, should look good on dark */
+      /* .project-card::before {
         content: "";
         position: absolute;
         top: 0;
@@ -276,9 +275,8 @@
         right: 0;
         height: 4px;
         background: linear-gradient(135deg, #3b82f6, #06b6d4);
-        /* primary to accent */
         border-radius: 16px 16px 0 0;
-      }
+      } */
 
       /* Contact section for dark theme */
       .contact-section {
@@ -427,9 +425,7 @@
             </div>
             <!-- Text color needs to adapt to dark theme -->
             <p class="text-xl font-semibold text-dark-light dark:text-dark">
-              <span style="margin-left: 10px"></span> Software Developer
-              specializing in MERN Stack and
-              <span style="margin-left: 10px">Spring Boot</span>
+              Software Developer specializing in MERN Stack and Spring Boot
             </p>
           </div>
           <!-- Text color needs to adapt -->
@@ -472,13 +468,13 @@
           <div class="flex items-start justify-between mb-4">
             <div>
               <h3 class="text-primary" style="font-size: 18px">
-                System Engineer
+                Tata Consultancy Services Limited
               </h3>
               <p
                 class="font-semibold text-dark dark:text-light"
                 style="color: #d1d5db; font-size: 14px"
               >
-                Tata Consultancy Services Ltd.
+                System Engineer
                 <span
                   class="text-gray-soft dark:text-dark-light font-normal text-sm ml-2"
                   >April 2025 – Present</span
@@ -503,7 +499,7 @@
           </p>
         </div>
 
-        <div class="card">
+        <!-- <div class="card">
           <div class="flex items-start justify-between mb-4">
             <div>
               <h3 class="text-primary" style="font-size: 18px">
@@ -513,7 +509,7 @@
                 class="font-semibold text-dark dark:text-light"
                 style="color: #d1d5db; font-size: 14px"
               >
-                Various Platforms
+              Various Platforms
                 <span
                   class="text-gray-soft dark:text-dark-light font-normal text-sm ml-2"
                   >2020 – Present</span
@@ -531,10 +527,10 @@
           <ul
             class="list-disc list-inside text-gray-soft dark:text-dark-light space-y-2 leading-relaxed pl-4"
           >
-          Actively participate in contests on Codeforces (Max Rating: 1079),
+          Actively participating in contests on Codeforces (Max Rating: 1079),
           LeetCode (350+ problems solved), and CodeChef (Rating: 1500+). 
           <br>
-          Consistently solve problems focusing on data structures,
+          Consistently solving problems focusing on data structures,
           algorithms, and mathematical logic.
           <br>
           Competed in 200+ coding contests across platforms.
@@ -545,138 +541,132 @@
           >.
           
           </ul>
-        </div>
+        </div> -->
       </section>
 
       <!-- Projects Section -->
       <section id="projects" class="mb-16 animate-on-scroll">
         <h2 style="font-size: 28px">Featured Projects</h2>
         <div style="margin-bottom: 20px"></div>
-
-        <div class="project-card card">
-          <div class="flex items-start justify-between mb-4">
-            <h3 class="text-primary" style="font-size: 18px">
-              FoodMart - An E-Commerce platform for Grocery
-            </h3>
-            <div
-              class="w-10 h-10 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center flex-shrink-0 ml-4"
-            >
-              <script>
-                document.write(lucide.ShoppingCart({ class: "text-white" }));
-              </script>
-            </div>
-          </div>
-          <p class="text-gray-soft dark:text-dark-light mb-4 leading-relaxed">
-            A full-featured e-commerce platform built with Java. Includes user
-            authentication, product catalog, shopping cart, order processing,
-            and an admin dashboard for managing products and users.
-          </p>
-          <p class="text-sm mb-6 text-dark-light dark:text-dark font-medium">
-            <strong>Technologies:</strong> Java, JSP, CSS, JavaScript, Derby,
-            JDBC
-          </p>
-          <div class="flex flex-wrap gap-4">
-            <a
-              href="https://github.com/hades-264/FoodMart"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="icon-link"
-            >
-              <script>
-                document.write(lucide.Github());
-              </script>
-              View Code
-            </a>
-            <!-- <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="icon-link"
-            >
-              <script>
-                document.write(lucide.ExternalLink());
-              </script>
-              Live Demo
-            </a> -->
+     <div class="project-card card">
+        <div class="flex items-start justify-between mb-4">
+          <h3 class="text-primary" style="font-size: 18px">
+            FoodMart - An E-Commerce platform for Grocery
+          </h3>
+          <div
+            class="w-10 h-10 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center flex-shrink-0 ml-4">
+            <script>
+              document.write(lucide.ShoppingCart({ class: "text-white" }));
+            </script>
           </div>
         </div>
+        <p class="text-gray-soft dark:text-dark-light mb-4 leading-relaxed">
+        <ul>
+          <li>A full-featured e-commerce platform built for purchasing grocery products.</li>
+          <li>It includes user authentication, product catalog, shopping cart, product details,
+            user profile and secure payment processing.</li>
+          <li>Also have admin panel for managing products, users and orders and a dashboard
+            to show all analytics.</li>
+        </ul>
+        </p>
+		<br>
+        <p class="text-sm mb-6 text-dark-light dark:text-dark font-medium">
+          <strong>Technologies:</strong> Java, JSP, CSS, JavaScript, Derby,
+          JDBC
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="https://github.com/hades-264/FoodMart" target="_blank" rel="noopener noreferrer" class="icon-link">
+            <script>
+              document.write(lucide.Github());
+            </script>
+            View Code
+          </a>
+          <!-- <a
+							href="#"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="icon-link"
+						>
+							<script>
+								document.write(lucide.ExternalLink());
+							</script>
+							Live Demo
+						</a> -->
+        </div>
+      </div>
+
+      <div class="project-card card mt-6">
+        <!-- Added mt-6 for spacing -->
+        <div class="flex items-start justify-between mb-4">
+          <h3 class="text-primary" style="font-size: 18px">
+            TaskMaster - Collaborative real-time communication App
+          </h3>
+          <div
+            class="w-10 h-10 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center flex-shrink-0 ml-4">
+            <script>
+              document.write(lucide.CheckSquare({ class: "text-white" }));
+            </script>
+          </div>
+        </div>
+        <p class="text-gray-soft dark:text-dark-light mb-4 leading-relaxed">
+        <ul>
+			<li>Developed a collaborative code editor, enabling real-time
+          synchronization and collaboration among multiple users, improving
+          coding efficiency by 40%.</li>
+			<li>Implemented user authentication, session
+          management, and scalable data storage with MongoDB; ensured CI/CD
+          with GitHub Actions and Docker.</li>
+		</ul>
+        </p>
+		<br>
+        <p class="text-sm mb-6 text-dark-light dark:text-dark font-medium">
+          <strong>Technologies:</strong> React, Context API, Node.js, Express,
+          MongoDB, Socket.io
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="https://github.com/hades-264/taskmaster" target="_blank" rel="noopener noreferrer" class="icon-link">
+            <script>
+              document.write(lucide.Github());
+            </script>
+            View Code
+          </a>
+        </div>
+      </div>
 
         <div class="project-card card mt-6">
-          <!-- Added mt-6 for spacing -->
-          <div class="flex items-start justify-between mb-4">
-            <h3 class="text-primary" style="font-size: 18px">
-              TaskMaster - Collaborative real-time communication App
-            </h3>
-            <div
-              class="w-10 h-10 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center flex-shrink-0 ml-4"
-            >
-              <script>
-                document.write(lucide.CheckSquare({ class: "text-white" }));
-              </script>
-            </div>
-          </div>
-          <p class="text-gray-soft dark:text-dark-light mb-4 leading-relaxed">
-            Developed a collaborative code editor, enabling real-time
-            synchronization and collaboration among multiple users, improving
-            coding efficiency by 40%. Implemented user authentication, session
-            management, and scalable data storage with MongoDB; ensured CI/CD
-            with GitHub Actions and Docker.
-          </p>
-          <p class="text-sm mb-6 text-dark-light dark:text-dark font-medium">
-            <strong>Technologies:</strong> React, Context API, Node.js, Express,
-            MongoDB, Socket.io
-          </p>
-          <div class="flex flex-wrap gap-4">
-            <a
-              href="https://github.com/hades-264/taskmaster"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="icon-link"
-            >
-              <script>
-                document.write(lucide.Github());
-              </script>
-              View Code
-            </a>
+        <div class="flex items-start justify-between mb-4">
+          <h3 class="text-primary" style="font-size: 18px">
+            Conversational Fashion Outfit Generator
+          </h3>
+          <div
+            class="w-10 h-10 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center flex-shrink-0 ml-4">
+            <script>
+              document.write(lucide.Trophy({ class: "text-white" }));
+            </script>
           </div>
         </div>
-
-        <!-- <div class="project-card card mt-6">
-          <div class="flex items-start justify-between mb-4">
-            <h3 class="text-primary" style="font-size: 18px">
-              CP Arena - Contest Tracker
-            </h3>
-            <div
-              class="w-10 h-10 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center flex-shrink-0 ml-4"
-            >
-              <script>
-                document.write(lucide.Trophy({ class: "text-white" }));
-              </script>
-            </div>
-          </div>
-          <p class="text-gray-soft dark:text-dark-light mb-4 leading-relaxed">
-            A web application that aggregates competitive programming contest
-            schedules from various platforms (Codeforces, LeetCode, AtCoder).
-            Users can filter contests and set reminders.
-          </p>
-          <p class="text-sm mb-6 text-dark-light dark:text-dark font-medium">
-            <strong>Technologies:</strong> React, Node.js, Express, Cheerio (for
-            scraping)
-          </p>
-          <div class="flex flex-wrap gap-4">
-            <a
-              href="https://github.com/yourusername/cp-arena"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="icon-link"
-            >
-              <script>
-                document.write(lucide.Github());
-              </script>
-              View Code
-            </a>
-          </div>
-        </div> -->
+        <p class="text-gray-soft dark:text-dark-light mb-4 leading-relaxed">
+        <ul>
+          <li>It is a personalized fashion outfit generator that users use to get
+            their best choices.</li>
+          <li>Integrated OpenAI api for generating personalized outfit suggestions based on user
+            input, this increased the user engagement by 30%.</li>
+        </ul>
+        </p>
+		<br>
+        <p class="text-sm mb-6 text-dark-light dark:text-dark font-medium">
+          <strong>Technologies:</strong> React.js, Node.js, Express.js, Python, MongoDB.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="https://github.com/hades-264/genai" target="_blank" rel="noopener noreferrer"
+            class="icon-link">
+            <script>
+              document.write(lucide.Github());
+            </script>
+            View Code
+          </a>
+        </div>
+      </div>
       </section>
 
       <!-- Coding Profiles Section -->
@@ -729,6 +719,54 @@
               <div class="text-size-medium">AtCoder</div>
             </a>
           </span>
+        </div>
+
+        <div style="margin-top: 20px;">
+
+        </div>
+          <div class="card">
+          <div class="flex items-start justify-between mb-4" style="margin-left: -10px;">
+            <div>
+              <h3 class="text-primary" style="font-size: 18px">
+                Competitive Programming
+              </h3>
+              <p
+                class="font-semibold text-dark dark:text-light"
+                style="color: #d1d5db; font-size: 14px"
+              >
+              Various Platforms
+                <span
+                  class="text-gray-soft dark:text-dark-light font-normal text-sm ml-2"
+                  >2020 – Present</span
+                >
+              </p>
+            </div>
+            <div
+              class="w-10 h-10 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center flex-shrink-0 ml-4"
+            >
+              <script>
+                document.write(lucide.Award({ class: "text-white" }));
+              </script>
+            </div>
+          </div>
+
+          <ul
+            class="list-disc list-inside text-gray-soft dark:text-dark-light space-y-2 leading-relaxed pl-4"
+           style="margin-left: -10px;">
+          Actively participating in contests on Codeforces (Max Rating: 1079),
+          LeetCode (350+ problems solved), and CodeChef (Rating: 1500+). 
+          <br>
+          Consistently solving problems focusing on data structures,
+          algorithms, and mathematical logic.
+          <br>
+          Competed in 200+ coding contests across platforms.
+          <br>
+          Achieved
+          <span class="text-primary font-semibold"
+            >Top 5% in Google KickStart Coding Challenge</span
+          >.
+          
+          </ul>
         </div>
       </section>
 
